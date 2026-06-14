@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 
 export default function Navbar() {
@@ -10,7 +12,6 @@ export default function Navbar() {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    // Run initial scroll check
     handleScroll();
 
     return () => {
@@ -18,7 +19,7 @@ export default function Navbar() {
     };
   }, []);
 
-  const scrollToSection = (e, id) => {
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>, id: string) => {
     e.preventDefault();
     setMobileNavOpen(false);
     const el = document.getElementById(id);
@@ -35,12 +36,12 @@ export default function Navbar() {
       {/* MOBILE NAV */}
       <div id="mob-nav" className={mobileNavOpen ? 'open' : ''}>
         <button className="mob-close" onClick={() => setMobileNavOpen(false)}>✕</button>
-        <a className="mob-link" href="#hero" onClick={(e) => scrollToSection(e, 'hero')}>Home</a>
-        <a className="mob-link" href="#services" onClick={(e) => scrollToSection(e, 'services')}>Services</a>
-        <a className="mob-link" href="#about" onClick={(e) => scrollToSection(e, 'about')}>About</a>
-        <a className="mob-link" href="#clients" onClick={(e) => scrollToSection(e, 'clients')}>Clients</a>
-        <a className="mob-link" href="#sustainability" onClick={(e) => scrollToSection(e, 'sustainability')}>Sustainability</a>
-        <a className="mob-link" href="#contact" onClick={(e) => scrollToSection(e, 'contact')}>Contact</a>
+        <button className="mob-link text-left" onClick={(e) => scrollToSection(e, 'hero')}>Home</button>
+        <button className="mob-link text-left" onClick={(e) => scrollToSection(e, 'services')}>Services</button>
+        <button className="mob-link text-left" onClick={(e) => scrollToSection(e, 'about')}>About</button>
+        <button className="mob-link text-left" onClick={(e) => scrollToSection(e, 'clients')}>Clients</button>
+        <button className="mob-link text-left" onClick={(e) => scrollToSection(e, 'sustainability')}>Sustainability</button>
+        <button className="mob-link text-left" onClick={(e) => scrollToSection(e, 'contact')}>Contact</button>
       </div>
 
       {/* NAVIGATION */}

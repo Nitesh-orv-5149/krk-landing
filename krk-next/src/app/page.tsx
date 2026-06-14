@@ -1,19 +1,20 @@
-import { useEffect } from 'react';
-import Loader from './components/Loader';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Ticker from './components/Ticker';
-import About from './components/About';
-import Services from './components/Services';
-import Stats from './components/Stats';
-import Certifications from './components/Certifications';
-import Clients from './components/Clients';
-import Sustainability from './components/Sustainability';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import BackToTop from './components/BackToTop';
+'use client';
 
-function App() {
+import { useEffect } from 'react';
+import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
+import Ticker from '../components/Ticker';
+import About from '../components/About';
+import Services from '../components/Services';
+import Stats from '../components/Stats';
+import Certifications from '../components/Certifications';
+import Clients from '../components/Clients';
+import Sustainability from '../components/Sustainability';
+import Contact from '../components/Contact';
+import Footer from '../components/Footer';
+import BackToTop from '../components/BackToTop';
+
+export default function Home() {
   useEffect(() => {
     // SCROLL REVEAL (IntersectionObserver for scroll fade/slide-in animations)
     const rvObs = new IntersectionObserver(
@@ -36,7 +37,7 @@ function App() {
         try {
           rvObs.unobserve(el);
         } catch (err) {
-          // ignore if already unobserved
+          // ignore
         }
       });
     };
@@ -59,5 +60,3 @@ function App() {
     </>
   );
 }
-
-export default App;
