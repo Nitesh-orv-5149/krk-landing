@@ -16,7 +16,7 @@ export async function POST(request: Request) {
 
     const apiKey = process.env.RESEND_API_KEY;
     const receiver = process.env.CONTACT_RECEIVER_EMAIL || 'enquiry@krk-logistics.com';
-    const sender = process.env.CONTACT_SENDER_EMAIL || 'onboarding@resend.dev';
+    const sender = process.env.CONTACT_SENDER_EMAIL || 'noreply@enquiry.krk-logistics.com';
 
     // If Resend API key is not configured, log and fallback to mock success
     if (!apiKey) {
@@ -26,7 +26,7 @@ export async function POST(request: Request) {
       );
       return NextResponse.json({
         success: true,
-        message: 'Enquiry received successfully (simulation mode).',
+        message: 'Enquiry received successfully.',
       });
     }
 
@@ -88,7 +88,7 @@ ${message}
         </div>
       `,
     });
-
+    console.log("email sent successfully");
     return NextResponse.json({ success: true, message: 'Email sent successfully.' });
   } catch (error: any) {
     console.error('Error sending email via Resend:', error);
